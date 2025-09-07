@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <title>PcStore</title>
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="flex.css">
+    </head> 
+    <style>
+        main {
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+    </style>
+    <body style = "background-color: black; font-family: COLONNA MT">
+        <header style = "color: white">
+            <a href = "#" class = "logo">LOGO</a>
+
+            <nav>
+                <ul>
+                    <li><a href="1_computer.html">Комп'ютери</a></li>
+                    <li><a href="#">Комлектуючі &blacktriangledown;</a>
+                        <ul>
+                            <li><a href="#">Відеокарти &blacktriangledown;</a>
+                                <ul>
+                                    <li><a href = "#">RADEON</a></li>
+                                    <li><a href = "#">NVIDIA</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Процесори</a></li>
+                            <li><a href="#">Материнскі плати</a></li>
+                            <li><a href="#">Корпуси</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Войти</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main style = "padding: 30px">
+            <h1>Створити заказ</h1>
+            <div>
+                <label for="product-name" style = "padding-bottom: 10px;">Вкажіть назву *</label>
+                <input type="text" id="product-name" placeholder="Наприклад, iPhone 11 з гарантією" minlength="16" maxlength="70" required>
+                <small>Введіть щонайменше 16 символів</small>
+            </div>
+            <div style = "padding-top: 2%; padding-bottom: 2%;">    
+                <label for="category" style = "padding-bottom: 10px;">Категорія *</label>
+                <select id="category" required>
+                    <option value="frame">Корпус</option>
+                    <option value="Videocard">Відеокарта</option>
+                    <option value="procesor">Процесор</option>
+                </select>
+            </div>
+            
+            <label for="image">Завантажити зображення *</label>
+            <div style = "display: flex; padding-left: 20px; padding-top: 6px; justify-content: space-evenly;">
+                <div class="upload-box" onclick="document.getElementById('image_1').click();">
+                    <span>Додати фото</span>
+                </div>
+                <input   type="file" id="image_1" accept="image/*" required>
+
+                <div class="upload-box" onclick="document.getElementById('image_2').click()">
+                    <span>Додати фото</span>
+                </div>
+                <input type="file" id="image_2" accept="image/*" required>
+
+                <div class="upload-box" onclick="document.getElementById('image_3').click()">
+                    <span>Додати фото</span>
+                </div>
+                <input type="file" id="image_3" accept="image/*" required>
+
+                <div class="upload-box" onclick="document.getElementById('image_4').click   ()">
+                    <span>Додати фото</span>
+                </div>
+                <input type="file" id="image_4" accept="image/*" required>
+            </div>
+            <div style = "padding-top: 20px;">
+                <label for="desc" style = "padding-bottom: 10px;">Описание *</label>
+                <textarea type="text" id="desc" style = "width: 450px; height: 150px;" placeholder="Напишіть опис товару..."required></textarea>
+            </div>
+            <div style = "padding-top: 30px;">
+                <label for="place"  >Місто проживання *</label>
+                <input style="margin-bottom: 40px;" type="text" id="place"required>
+                
+                <label></label>
+            </div>
+            <div>
+                <h2><label for="contacts" style="padding-bottom: 40px;">Ваші контакти *</label></h2>
+                <label for="name" style = "padding-bottom: 10px;">Ім'я *</label>
+                <input style = "margin-bottom: 20px;" type="text" id="name"required>
+
+                <label for="email" style = "padding-bottom: 10px;">Email-адреса *</label>
+                <input style = "margin-bottom: 20px;" type="text" id="email"required>
+
+                <label for="number" style = "padding-bottom: 10px;">Номер телефона *</label>
+                <input type="text" id="number"required>
+            </div>
+            <div style = "display: flex; justify-content: end; padding: 20px;">
+                <button id="apply" class = "button" style = "padding: 1.75% 9%;">
+                    apply
+                </button>
+            </div>
+        </main>
+        <footer style = "display: flex; padding: 30px;">
+            <div>
+                <div class = "footer">
+                    <h1 style = "padding: 10px">наши контакти</h1> 
+                    <div style = "padding: 2px; color: white; align-items: center;">
+                        <img src= "image/images.png" width = "40px" height = "30px">
+                        <a href = "https://code.visualstudio.com/">https://code.visualstudio.com/</a>
+                    </div>
+                    <div style = "padding: 10px">
+                        <img src= "image/telegram.png" width = "30px" height = "30px">
+                        <a href = "https://web.telegram.org/k/">https://web.telegram.org/k/</a>
+                    </div>
+                    <div style = "padding: 10px">
+                        <img src= "image/Instagram_logo.png" width = "30px" height = "30px">
+                        <a href = "https://www.instagram.com/">https://www.instagram.com/</a>
+                    </div>
+                </div>
+                <div style = "display: flex;">
+                    <img style = "padding-left: 30px;" src = "image/download.png" width = "190px">
+                    <div style = "border-radius: 15px; flex-direction: column;">
+                        <div>
+                            <img style = "padding: 15px;" src = "image/playmarket.jpg" width = "140px" height = "80px">
+                        </div>
+                        <div>
+                            <img style = "padding: 15px;" src = "image/appstore.jpg" width = "140px" height = "80px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style = "display: flex; padding: 15px">
+                <button class = "button" style = "width: 150px;">
+                    Компютери
+                </button>
+                <button class = "button" style = "width: 150px;">
+                    Процесори
+                </button>
+                <button class = "button" style = "width: 150px;">
+                    Відеокарти
+                </button>
+                <button class = "button" style = "width: 150px; ">
+                    Блок живлення
+                </button>
+            </div>
+        </footer>
+        <script src="core.js"></script>
+    </body>
+</html>
