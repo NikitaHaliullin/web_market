@@ -7,9 +7,10 @@ let pc_color = document.getElementById('PcColor')
 let computers = document.getElementById('computers')
 let price_text = document.querySelectorAll('.price_text')
 let title_text = document.querySelectorAll('.title_text')
-let card = document.querySelectorAll('.card')
-
-console.log(card[0].innerHTML)
+let cards = document.querySelectorAll('.card')
+let name_image = document.querySelectorAll('.name_image')
+let color_text = document.querySelectorAll('.black')
+let hover_image = document.querySelector('.hover-image')
 
 let pos = -425
 let isOpen = false
@@ -51,33 +52,75 @@ basket.addEventListener('click', function () {
 })
 
 choose.addEventListener("click", function () {
+    let Min = document.getElementById('min').value
+    let Max = document.getElementById('max').value
     let color_value = pc_color.value
     let sort_value = high_low.value
     let text_number
+    let id_price = {}
+    let sorted
+    let img
 
-    let max = -Infinity
-    let maxIndex = -1
+    for (let i = 0; i < price_text.length; i++) {
+        text_number = Number(price_text[i].textContent.trim())
+        img = name_image[i].src;
+        let title = title_text[i].textContent.trim()
+        let color = color_text[i].textContent.trim()
+    
+        id_price[`computer_${i + 1}`] = {
+            price: text_number,
+            img: img,
+            title: title,
+            color: color
+        };
+    }
+    
+    if (sort_value === "high") {
+        sorted = Object.entries(id_price).sort((a, b) => b[1].price - a[1].price)
+    } else {
+        sorted = Object.entries(id_price).sort((a, b) => a[1].price - b[1].price)
+    }
+    
+    for (let i = 0; i < sorted.length; i++) {
 
-    console.log(text_number)
+            if (sorted[i][1].color == color_value) {
+                cards[i].innerHTML = `                                
+                <div id="${sorted[i][0]}">
+                    <img src="${sorted[i][1].img}" width="140px" height="200px">
+                    <p class="title_text">${sorted[i][1].title}</p>
+                    <p class="price_text">${sorted[i][1].price}</p>
+                    <p class="black">${sorted[i][1].color}</p>
+                </div>
+                `;
 
-    for (let i = 0; price_text.length; i++) {
-        text_number = Number(price_text[i].textContent.slice(0, 5))
+                if (sorted[i][1].price >= Min && sorted[i][1].price <= Max) {
+                    cards[i].style.display = "flex"
+                } else {
+                    cards[i].style.display = "none"
+                }
 
-        if(text_number > max) {
-            max = text_number
-            maxIndex = i
-        }
+            } else if (color_value === "All") {
 
-        card[i].innerHTML = `                                
-            <div id="computer_${i}">
-                <img src="image/407295381.webp" width="140px" height="200px">
-                <p class="title_text">Ігровий компютер на основі gtx 1060 6gb; ryzen 5 3600; b450m; bp 1000w</p>
-                <p class="price_text">${text_number}</p>
-            </div>
-            `
-            console.log(card[i].innerHTML)
+                cards[i].innerHTML = `                                
+                <div id="${sorted[i][0]}">
+                    <img src="${sorted[i][1].img}" width="140px" height="200px">
+                    <p class="title_text">${sorted[i][1].title}</p>
+                    <p class="price_text">${sorted[i][1].price}</p>
+                    <p class="black">${sorted[i][1].color}</p>
+                </div>
+                `;
+
+                if (sorted[i][1].price >= Min && sorted[i][1].price <= Max) {
+                    cards[i].style.display = "flex"
+                } else {
+                    cards[i].style.display = "none"
+                }
+            } else {
+                cards[i].style.display = "none"
+            }
+        
     }
 
-    
 })
+
 
