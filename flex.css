@@ -226,7 +226,7 @@ nav ul li:hover > ul {
 }
 
 .card {
-    display: flex;
+    display: block;
     background: rgb(221, 221, 221);
     flex-direction: column;
     box-sizing: border-box;
@@ -235,6 +235,7 @@ nav ul li:hover > ul {
     margin: 15px;
     padding: 20px;
     width: 180px;
+    height: 360px;
     
 }
 
