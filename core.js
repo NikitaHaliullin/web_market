@@ -10,7 +10,6 @@ let title_text = document.querySelectorAll('.title_text')
 let cards = document.querySelectorAll('.card')
 let name_image = document.querySelectorAll('.name_image')
 let color_text = document.querySelectorAll('.black')
-let hover_image = document.querySelector('.hover-image')
 
 let pos = -425
 let isOpen = false
@@ -63,6 +62,7 @@ choose.addEventListener("click", function () {
 
     for (let i = 0; i < price_text.length; i++) {
         text_number = Number(price_text[i].textContent.trim())
+        console.log(text_number)
         img = name_image[i].src;
         let title = title_text[i].textContent.trim()
         let color = color_text[i].textContent.trim()
@@ -93,9 +93,10 @@ choose.addEventListener("click", function () {
                 </div>
                 `;
 
-                if (sorted[i][1].price >= Min && sorted[i][1].price <= Max) {
+                if (sorted[i][1].price >= Min && sorted[i][1].price <= Max || Max === "" && Min === "") {
                     cards[i].style.display = "flex"
                 } else {
+                    console.log(color_value)
                     cards[i].style.display = "none"
                 }
 
@@ -110,7 +111,7 @@ choose.addEventListener("click", function () {
                 </div>
                 `;
 
-                if (sorted[i][1].price >= Min && sorted[i][1].price <= Max) {
+                if (sorted[i][1].price >= Min && sorted[i][1].price <= Max || Max === "" && Min === "") {
                     cards[i].style.display = "flex"
                 } else {
                     cards[i].style.display = "none"
@@ -122,5 +123,23 @@ choose.addEventListener("click", function () {
     }
 
 })
+
+cards.forEach((card) => {
+    card.addEventListener("click", () => {
+        let img = card.querySelector("img").src
+        let price = card.querySelector('.price_text').textContent.trim()
+        let title = card.querySelector('.title_text').textContent.trim()
+        let color = card.querySelector('.black').textContent.trim()
+        
+        localStorage.setItem('selectComputer', JSON.stringify({
+            img: img,
+            price: price,
+            title: title,
+            color: color
+        }))
+    })
+})
+
+
 
 
