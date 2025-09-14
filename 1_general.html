@@ -43,16 +43,18 @@
                         <div style = "display: block; margin-bottom: 30px;">
                             <img class="hover-image" src = "image/360512118.webp" height = "450px" width = "350px">
                         </div>
-                        <img id = "image_img" src = "image/VIBER_PC.png" height = "100px" width = "80px" style = "margin-left: -50px; margin-right: 20px; margin-bottom: 20px">
-                        <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
-                        <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
-                        <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
+                            <img  src = "image/VIBER_PC.png" height = "100px" width = "80px" style = "margin-left: -50px; margin-right: 20px; margin-top: 20px">
+                            <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
+                            <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
+                            <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
+                        </div>
                     </div>
                 </div>
                 <div style = "padding: 19px">
-                    <h2><p>Компьютер ARTLINE Gaming X47 (X47v45)</p>
-                    <p>AMD Ryzen 5 5500 / 16ГБ DDR4 / HDD 1ТБ + SSD 480ГБ</p> /
-                    nVidia GeForce RTX 3060 12 ГБ</h2>
+                    <h2><p>Компьютер ARTLINE Gaming X47 (X47v45)
+                    AMD Ryzen 5 5500 / 16ГБ DDR4 / HDD 1ТБ + SSD 480ГБ /
+                    nVidia GeForce RTX 3060 12 ГБ</p></h2>
                     <div style = "padding: 26px; display: flex; align-items: center; font-family: COLONNA MT">
                         <h3>Продавец:</h3> 
                         <div style = "padding: 15px">
@@ -76,14 +78,14 @@
                         <div style = "margin-top: -5px;">
                             <h4 style = "color: green">Есть в наличии</h4>
                             <div style = "display: flex;" class = "cost">
-                                <h1 style = "color: red">30 000</h1>
+                                <h1 id="general_price" style = "color: red">30 000</h1>
                                 <h5 style = "color: red">₴</h5>
                             </div>
                         </div>
-                        <div class = "button" style = "height: 60px; padding: 3% 11%;">
+                        <div class = "general_button" style = "height: 60px; padding: 3% 11%;">
                             купити
                         </div>
-                        <div class = "button" style = "height: 60px; padding: 3% 11%;">
+                        <div class = "general_button" style = "height: 60px; padding: 3% 11%;">
                             кредит
                         </div>
                     </div>
@@ -180,7 +182,18 @@
               </div>
             </div>
         </footer>
-        <script src="core.js"></script>
+        <script>
+            let selectComputer = JSON.parse(localStorage.getItem('selectComputer'))
+
+            if (selectComputer) {
+                document.querySelector('.hover-image').src = selectComputer.img
+                document.getElementById('general_price').textContent = selectComputer.price
+                document.querySelector('h2 p').textContent = selectComputer.title;
+                console.log(document.querySelector('h2 p').textContent)
+            }
+        </script>
     </body>
 </html>
+
+
 
