@@ -76,10 +76,6 @@ label {
 
 }
 
-.hover-image:hover {
-    content: url("image/502693029.webp");
-}
-
 #hover-image:hover {
     content: url("image/change_your_pc_2.png");
 }
@@ -176,18 +172,19 @@ nav ul li:hover > ul {
 }
 
 .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 5% 10%;
     margin-left: 50px;
-    font-weight: 1000;
+    font-weight: 700;
     height: 60px;
     font-size: 17px;
-    justify-content: center;
     text-align: center;
-    align-items: center;
     cursor: pointer;    
     background: black;
     color: #4A90E2;
-    font-family: "Inter";
+    font-family: cursive;
     transition: .2s;
     border: 2px solid #4A90E2;
     border-radius: 20px;
@@ -202,6 +199,32 @@ nav ul li:hover > ul {
     background: #00f;
     color: white;
     border: 2px solid white;
+
+}
+
+.general_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 10%;
+    margin-left: 50px;
+    font-weight: 700;
+    height: 60px;
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;    
+    background: black;
+    color: #31ee6a;
+    font-family: cursive;
+    transition: .2s;
+    border: 2px solid #31ee6a;
+    border-radius: 20px;
+}
+
+.general_button:hover {
+    background: #31ee6a;
+    color: black;
+    border: 2px solid black;
 
 }
 
@@ -340,3 +363,4 @@ input {
     width: 40px;
     height: 40px
 }
+
