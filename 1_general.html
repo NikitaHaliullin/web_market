@@ -13,23 +13,26 @@
                     <li><a href="1_computer.html">Комп'ютери</a></li>
                     <li><a href="#">Комлектуючі &blacktriangledown;</a>
                         <ul>
-                            <li><a href="#">Відеокарти &blacktriangledown;</a>
-                                <ul>
-                                    <li><a href = "#">RADEON</a></li>
-                                    <li><a href = "#">NVIDIA</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Процесори</a></li>
-                            <li><a href="#">Материнскі плати</a></li>
+                            <li><a href="1_vidercard.html">Відеокарти</a></li>
+                            <li><a href="1_procesor.html">Процесори</a></li>
+                            <li><a href="1_mother_board.html">Материнскі плати</a></li>
                             <li><a href="#">Корпуси</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Войти</a></li>
+                    <li><a href="1_register.html">Войти</a></li>
                 </ul>
             </nav>
         </header>
         
         <main style = "font-family: Arial; flex-wrap: nowrap;"> 
+            <div id="massage-basket">
+                <div style="display: flex; flex-direction: column; align-items: start; justify-content: start;">
+                    <div style="padding: 20px;">
+                        <label style="color: #4A90E2;">Ваша корзина</label>
+                    </div>
+                    <div id="buy_computers"></div>
+                </div>
+            </div>
             <div style = "display: flex; justify-content: space-around; 
                                          padding: 25px; flex-wrap: nowrap; cursor: pointer;">
                 <h2 class = "move" onclick= "document.getElementById('about').scrollIntoView({behavior: 'smooth'})">ОБ товаре</h2>
@@ -41,13 +44,7 @@
                 <div style = "padding: 5% 7%; display: flex;">
                     <div>
                         <div style = "display: block; margin-bottom: 30px;">
-                            <img class="hover-image" src = "image/360512118.webp" height = "450px" width = "350px">
-                        </div>
-                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap;">
-                            <img  src = "image/VIBER_PC.png" height = "100px" width = "80px" style = "margin-left: -50px; margin-right: 20px; margin-top: 20px">
-                            <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
-                            <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
-                            <img src = "image/360512118.webp" height = "100px" width = "80px" style = "margin: 20px;">
+                            <img class="hover-image" src = "image/360512118.webp" height = "500px" width = "450px">
                         </div>
                     </div>
                 </div>
@@ -82,7 +79,7 @@
                                 <h5 style = "color: red">₴</h5>
                             </div>
                         </div>
-                        <div class = "general_button" style = "height: 60px; padding: 3% 11%;">
+                        <div id="buy" class = "general_button" style = "height: 60px; padding: 3% 11%;">
                             купити
                         </div>
                         <div class = "general_button" style = "height: 60px; padding: 3% 11%;">
@@ -127,21 +124,9 @@
                 </div>
             </div>
             <div id = "about" style = "display: flex;">
-                <div class = "wrap-text" style = "padding: 0% 4%; color: black; letter-spacing: 1px; line-height: 1.8;">
-                    <h1 style = "font-size: 40px; color: black;">Об товаре</h1>
-                    <h2 style = "padding: 0% 3%">Це ігровий комп'ютер, який потягне будь-яку гру, 
-                        яка вам сподобається! Під час використання цього монстра у всіх іграх 
-                        буде щонайменше 60 кадрів на секунду на найвищих налаштуваннях, 
-                        той самий Кіберпанк на високих налаштуваннях показує 60+ кадрів 
-                        без просідань, а про процесор я взагалі мовчу, 
-                        райзен 5 5500 - це процесор, сумісний з усіма відеокартами, 
-                        3D розробка - це взагалі не проблема для такого процесора, 
-                        а такоже ти зможеш усунути 15 gta 5, і 
-                        все це живиться найпотужнішим блоком живлення на 750w.</h2>
-                </div>
             </div>
         </main>
-        <footer style="background: #292929; color: white; padding: 30px 0; margin-top: 250px">
+        <footer style="background: #292929; color: white; padding: 30px 0; margin-top: 200px">
             <div style="margin-bottom: 10px; text-align: center;">
               <strong>PcStore</strong> © 2025
             </div>
@@ -182,18 +167,10 @@
               </div>
             </div>
         </footer>
-        <script>
-            let selectComputer = JSON.parse(localStorage.getItem('selectComputer'))
-
-            if (selectComputer) {
-                document.querySelector('.hover-image').src = selectComputer.img
-                document.getElementById('general_price').textContent = selectComputer.price
-                document.querySelector('h2 p').textContent = selectComputer.title;
-                console.log(document.querySelector('h2 p').textContent)
-            }
-        </script>
+        <script src="general.js"></script>
     </body>
 </html>
+
 
 
 
